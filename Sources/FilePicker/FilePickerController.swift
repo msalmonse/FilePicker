@@ -11,6 +11,7 @@ import UIKit
 
 // wrapper for UIDocumentPickerViewController
 
+@available(iOS 13.0, *)
 struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
     var state: FilePickerState
