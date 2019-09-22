@@ -11,10 +11,10 @@ import UIKit
 
 @available(iOS 13.0, *)
 public class FilePickerState: ObservableObject, Identifiable {
-    let id = UUID()     // swiftlint:disable:this identifier_name
+    public let id = UUID()     // swiftlint:disable:this identifier_name
 
     @Published
-    var urls: [URL]?
+    public var urls: [URL]?
 
     var documentTypes: [String] = []
     var pickerMode: UIDocumentPickerMode

@@ -16,11 +16,11 @@ public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
     var state: FilePickerState
 
-    func makeCoordinator() -> FilePickerController.Coordinator {
+    public func makeCoordinator() -> FilePickerController.Coordinator {
         Coordinator(self)
     }
 
-    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+    public func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
         let controller = UIDocumentPickerViewController(
             documentTypes: state.documentTypes,
             in: state.pickerMode
@@ -30,25 +30,25 @@ public struct FilePickerController: UIViewControllerRepresentable {
         return controller
     }
 
-    func updateUIViewController(
+    public func updateUIViewController(
         _ controller: UIDocumentPickerViewController,
         context: Context
     ) {
         return
     }
 
-    class Coordinator: NSObject, UIDocumentPickerDelegate {
+    public class Coordinator: NSObject, UIDocumentPickerDelegate {
         var parent: FilePickerController
 
         init(_ controller: FilePickerController) {
             self.parent = controller
         }
 
-        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             parent.state.urls = nil
         }
 
-        func documentPicker(
+        public func documentPicker(
             _ controller: UIDocumentPickerViewController,
             didPickDocumentsAt urls: [URL]
         ) {
