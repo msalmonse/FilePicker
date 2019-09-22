@@ -1,3 +1,3 @@
 # FilePicker
 
-A description of this package.
+Wrapper for [`UIDocumentPickerViewController`](https://developer.apple.com/documentation/uikit/uidocumentpickerviewcontroller)
