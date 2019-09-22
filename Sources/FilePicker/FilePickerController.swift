@@ -14,7 +14,7 @@ import UIKit
 @available(iOS 13.0, *)
 public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
-    var state: FilePickerState
+    public var state: FilePickerState
 
     public func makeCoordinator() -> FilePickerController.Coordinator {
         Coordinator(self)
