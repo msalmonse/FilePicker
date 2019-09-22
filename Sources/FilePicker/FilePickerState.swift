@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 #if canImport(UIKit)
+import UIKit
 
 class FilePickerState: ObservableObject, Identifiable {
     let id = UUID()     // swiftlint:disable:this identifier_name
@@ -17,7 +18,15 @@ class FilePickerState: ObservableObject, Identifiable {
     var urls: [URL]?
 
     var documentTypes: [String] = []
-    var pickerMode: UIDoc
+    var pickerMode: UIDocumentPickerMode
+
+    init(
+        utis: [String] = ["public.item"],
+        mode: UIDocumentPickerMode = .open
+    ) {
+        documentTypes = utis
+        pickerMode = mode
+    }
 }
 
 #endif
