@@ -16,6 +16,10 @@ public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
     public var state: FilePickerState
 
+    public init(_ state: FilePickerState) {
+        self.state = state
+    }
+    
     public func makeCoordinator() -> FilePickerController.Coordinator {
         Coordinator(self)
     }
