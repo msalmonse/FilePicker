@@ -19,7 +19,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     var documentTypes: [String] = []
     var pickerMode: UIDocumentPickerMode
 
-    init(
+    public init(
         utis: [String] = ["public.item"],
         mode: UIDocumentPickerMode = .open
     ) {
