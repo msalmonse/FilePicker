@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 @available(iOS 13.0, *)
-class FilePickerState: ObservableObject, Identifiable {
+public class FilePickerState: ObservableObject, Identifiable {
     let id = UUID()     // swiftlint:disable:this identifier_name
 
     @Published
