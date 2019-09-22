@@ -7,8 +7,6 @@
 
 import Foundation
 import Combine
-
-#if canImport(UIKit)
 import UIKit
 
 class FilePickerState: ObservableObject, Identifiable {
@@ -28,5 +26,3 @@ class FilePickerState: ObservableObject, Identifiable {
         pickerMode = mode
     }
 }
-
-#endif

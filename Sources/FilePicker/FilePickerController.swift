@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-#if canImport(UIKit)
 import SwiftUI
 import UIKit
 
@@ -57,5 +55,3 @@ struct FilePickerController: UIViewControllerRepresentable {
         }
     }
 }
-
-#endif
