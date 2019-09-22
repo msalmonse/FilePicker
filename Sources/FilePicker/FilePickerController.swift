@@ -16,10 +16,15 @@ public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
     public var state: FilePickerState
 
+    @Environment(\.presentationMode)
+    var mode: Binding<PresentationMode>
+
+    func dismiss() { mode.wrappedValue.dismiss() }
+
     public init(_ state: FilePickerState) {
         self.state = state
     }
-    
+
     public func makeCoordinator() -> FilePickerController.Coordinator {
         Coordinator(self)
     }
@@ -50,6 +55,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
 
         public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             parent.state.urls = nil
+            dismiss()
         }
 
         public func documentPicker(
@@ -57,6 +63,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
             didPickDocumentsAt urls: [URL]
         ) {
             parent.state.urls = urls
+            dismiss()
         }
     }
 }
