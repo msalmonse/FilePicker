@@ -55,7 +55,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
 
         public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             parent.state.urls = nil
-            dismiss()
+            parent.dismiss()
         }
 
         public func documentPicker(
@@ -63,7 +63,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
             didPickDocumentsAt urls: [URL]
         ) {
             parent.state.urls = urls
-            dismiss()
+            parent.dismiss()
         }
     }
 }
