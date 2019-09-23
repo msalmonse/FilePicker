@@ -67,7 +67,9 @@ public struct FilePickerController: UIViewControllerRepresentable {
             didPickDocumentsAt urls: [URL]
         ) {
             parent.state.urls = urls
-            parent.state.urlPublisher.send(urls.first)
+            if let url = urls.first {
+                parent.state.urlPublisher.send(url)
+            }
             parent.dismiss()
         }
     }
