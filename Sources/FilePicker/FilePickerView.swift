@@ -23,7 +23,7 @@ public struct FilePickerView: View {
         mode.wrappedValue.dismiss()
     }
 
-    var body: some View {
+    public var body: some View {
         FilePickerController(state, { self.doDismiss() })
     }
 }
