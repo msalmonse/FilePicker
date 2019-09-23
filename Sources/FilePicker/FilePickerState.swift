@@ -29,6 +29,8 @@ public class FilePickerState: ObservableObject, Identifiable {
     @Published
     var directoryURL: URL?
 
+    public let urlPublisher = PassthroughSubject<URL, Never>
+
     public init(
         _ directory: URL? = nil,
         utis: [String] = ["public.item"],

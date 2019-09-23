@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import SwiftUI
 import UIKit
 
@@ -66,6 +67,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
             didPickDocumentsAt urls: [URL]
         ) {
             parent.state.urls = urls
+            parent.state.urlPublisher.send(urls.first)
             parent.dismiss()
         }
     }
