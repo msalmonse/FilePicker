@@ -15,15 +15,17 @@ import UIKit
 @available(iOS 13.0, *)
 public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
-    public var state: FilePickerState
+    var state: FilePickerState
 
-    @Environment(\.presentationMode)
-    var mode: Binding<PresentationMode>
+    let doDismiss: (() -> Void)?
 
-    func dismiss() { mode.wrappedValue.dismiss() }
-
-    public init(_ state: FilePickerState) {
+    public init(_ state: FilePickerState, _ doDismiss: (() -> Void)? = nil) {
         self.state = state
+        self.doDismiss = doDismiss
+    }
+
+    func dismiss() {
+        if doDismiss != nil { doDismiss!() }
     }
 
     public func makeCoordinator() -> FilePickerController.Coordinator {
