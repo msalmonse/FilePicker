@@ -35,6 +35,8 @@ public struct FilePickerController: UIViewControllerRepresentable {
             in: state.pickerMode
         )
         controller.delegate = context.coordinator
+        controller.allowsMultipleSelection = state.allowsMultipleSelection
+        controller.directoryURL = state.directoryURL
 
         return controller
     }
@@ -43,6 +45,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
         _ controller: UIDocumentPickerViewController,
         context: Context
     ) {
+        controller.allowsMultipleSelection = state.allowsMultipleSelection
         return
     }
 

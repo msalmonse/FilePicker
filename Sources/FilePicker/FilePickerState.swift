@@ -19,10 +19,22 @@ public class FilePickerState: ObservableObject, Identifiable {
     var documentTypes: [String] = []
     var pickerMode: UIDocumentPickerMode
 
+    @Published
+    var allowsMultipleSelection = false
+    public func allowMultipleSelection(_ allow: Bool) -> FilePickerState {
+        allowsMultipleSelection = allow
+        return self
+    }
+
+    @Published
+    var directoryURL: URL?
+
     public init(
+        _ directory: URL? = nil,
         utis: [String] = ["public.item"],
         mode: UIDocumentPickerMode = .open
     ) {
+        directoryURL = directory
         documentTypes = utis
         pickerMode = mode
     }
