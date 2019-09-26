@@ -29,6 +29,13 @@ public class FilePickerState: ObservableObject, Identifiable {
     @Published
     var directoryURL: URL?
 
+    @Published
+    var shouldShowFileExtensions = false
+    public func showFileExtensions(_ show: Bool) -> FilePickerState {
+        shouldShowFileExtensions = show
+        return self
+    }
+
     public let urlPublisher = PassthroughSubject<URL, Never>()
 
     public init(

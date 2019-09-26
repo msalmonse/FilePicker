@@ -40,6 +40,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
         controller.delegate = context.coordinator
         controller.allowsMultipleSelection = state.allowsMultipleSelection
         controller.directoryURL = state.directoryURL
+        controller.shouldShowFileExtensions = state.shouldShowFileExtensions
 
         return controller
     }
