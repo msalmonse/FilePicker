@@ -50,6 +50,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
         context: Context
     ) {
         controller.allowsMultipleSelection = state.allowsMultipleSelection
+        controller.shouldShowFileExtensions = state.shouldShowFileExtensions
         return
     }
 
