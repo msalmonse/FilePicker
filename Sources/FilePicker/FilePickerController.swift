@@ -28,6 +28,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
     }
 
     func dismiss() {
+        state.directoryURL?.stopAccessingSecurityScopedResource()
         if doDismiss != nil { doDismiss!() }
     }
 
@@ -42,6 +43,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
         )
         controller.delegate = context.coordinator
         controller.allowsMultipleSelection = state.allowsMultipleSelection
+        state.directoryURL?.startAccessingSecurityScopedResource()
         controller.directoryURL = state.directoryURL
         controller.shouldShowFileExtensions = state.shouldShowFileExtensions
 
@@ -75,6 +77,7 @@ public struct FilePickerController: UIViewControllerRepresentable {
         ) {
             parent.state.urls = urls
             if let url = urls.first {
+                url.startAccessingSecurityScopedResource()
                 parent.state.urlPublisher.send(url)
             }
             parent.dismiss()
