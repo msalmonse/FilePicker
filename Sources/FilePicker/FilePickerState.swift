@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import UIKit
+import MobileCoreServices
 
 @available(iOS 13.0, *)
 /// Container for parameters for FilePickerController()
@@ -58,7 +59,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     /// - Parameter mode: initial value for pickerMode
     public init(
         _ directory: URL? = nil,
-        utis: [String] = ["public.item"],
+        utis: [String] = [(kUTTypeItem as String), (kUTTypeFolder as String)],
         mode: UIDocumentPickerMode = .open
     ) {
         directoryURL = directory
