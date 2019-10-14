@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
+/// View to show FilePickerController and allow dismisal
+/// - Parameter state: state for FilePickerController
 public struct FilePickerView: View {
     @ObservedObject
     var state: FilePickerState

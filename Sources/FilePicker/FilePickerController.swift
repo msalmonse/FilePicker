@@ -10,9 +10,12 @@ import Combine
 import SwiftUI
 import UIKit
 
-// wrapper for UIDocumentPickerViewController
-
 @available(iOS 13.0, *)
+/// Wrapper for UIDocumentPickerViewController
+///
+/// - Parameter state: FilePickerState - parameters for UIDocumentPickerViewController
+/// - Parameter doDismiss: Optional closure to run to close the controller
+///
 public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
     var state: FilePickerState
