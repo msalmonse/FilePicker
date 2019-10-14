@@ -27,7 +27,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     @Published
     var allowsMultipleSelection = false
     /// Setter for allowsMultipleSelection
-    /// - Parameter allow: value to set allowsMultipleSelection to
+    /// - Parameter allow: new value for allowsMultipleSelection
     @discardableResult
     public func allowMultipleSelection(_ allow: Bool) -> FilePickerState {
         allowsMultipleSelection = allow
@@ -42,7 +42,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     @Published
     var shouldShowFileExtensions = false
     /// Setter for shouldShowFileExtensions
-    /// - Parameter show: value to set shouldShowFileExtensions to
+    /// - Parameter show: new value for shouldShowFileExtensions
     @discardableResult
     public func showFileExtensions(_ show: Bool) -> FilePickerState {
         shouldShowFileExtensions = show
