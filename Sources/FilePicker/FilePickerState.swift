@@ -53,7 +53,7 @@ public class FilePickerState: ObservableObject, Identifiable {
 
     /// Publisher for the selected URL. It is the first URL if multiple URL's are allowed
     /// send() is called in FilePickerController
-    public let urlPublisher = PassthroughSubject<URL?, Never>()
+    public let urlPublisher = PassthroughSubject<URL, Never>()
 
     /// Initializer for FilePickerState
     /// - Parameter directory: start directory
