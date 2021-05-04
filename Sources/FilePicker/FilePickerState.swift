@@ -17,7 +17,9 @@ public class FilePickerState: ObservableObject, Identifiable {
 
     /// URL's selected by UIDocumentPickerViewController
     @Published
-    public var urls: [URL]?
+    public var urls: [URL]? {
+        didSet { urlPublisher.send(urls?[0]) }
+    }
 
     /// UTI's of documents we are interested in
     var documentTypes: [String] = []
