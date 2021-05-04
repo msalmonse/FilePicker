@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 import UIKit
-import MobileCoreServices
+import UniformTypeIdentifiers
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 /// Container for parameters for FilePickerController()
 public class FilePickerState: ObservableObject, Identifiable {
     public let id = UUID()     // swiftlint:disable:this identifier_name
@@ -22,9 +22,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     }
 
     /// UTI's of documents we are interested in
-    var documentTypes: [String] = []
-    /// Mode for UIDocumentPickerViewController: import, open, export or move
-    var pickerMode: UIDocumentPickerMode
+    var documentTypes: [UTType] = []
 
     /// Allow multiple selections in UIDocumentPickerViewController
     @Published
@@ -53,7 +51,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     }
 
     /// Publisher for the selected URL. It is the first URL if multiple URL's are allowed
-    public let urlPublisher = PassthroughSubject<URL, Never>()
+    public let urlPublisher = PassthroughSubject<URL?, Never>()
 
     /// Initializer for FilePickerState
     /// - Parameter directory: start directory
@@ -61,7 +59,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     /// - Parameter mode: initial value for pickerMode
     public init(
         _ directory: URL? = nil,
-        utis: [String] = [(kUTTypeItem as String), (kUTTypeFolder as String)],
+        utis: [UTType] = [.item, .folder],
         mode: UIDocumentPickerMode = .open
     ) {
         directoryURL = directory

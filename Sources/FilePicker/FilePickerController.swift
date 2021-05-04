@@ -9,8 +9,9 @@ import Foundation
 import Combine
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 /// Wrapper for UIDocumentPickerViewController
 ///
 /// - Parameter state: FilePickerState - parameters for UIDocumentPickerViewController
@@ -37,10 +38,8 @@ public struct FilePickerController: UIViewControllerRepresentable {
     }
 
     public func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-        let controller = UIDocumentPickerViewController(
-            documentTypes: state.documentTypes,
-            in: state.pickerMode
-        )
+        let controller =
+            UIDocumentPickerViewController(forOpeningContentTypes: state.documentTypes, asCopy: true)
         controller.delegate = context.coordinator
         controller.allowsMultipleSelection = state.allowsMultipleSelection
         _ = state.directoryURL?.startAccessingSecurityScopedResource()
