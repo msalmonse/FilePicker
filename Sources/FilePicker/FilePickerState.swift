@@ -56,14 +56,11 @@ public class FilePickerState: ObservableObject, Identifiable {
     /// Initializer for FilePickerState
     /// - Parameter directory: start directory
     /// - Parameter utis: initial value for documentTypes
-    /// - Parameter mode: initial value for pickerMode
     public init(
         _ directory: URL? = nil,
-        utis: [UTType] = [.item, .folder],
-        mode: UIDocumentPickerMode = .open
+        utis: [UTType] = [.item, .folder]
     ) {
         directoryURL = directory
         documentTypes = utis
-        pickerMode = mode
     }
 }
