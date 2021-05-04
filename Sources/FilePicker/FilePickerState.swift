@@ -17,12 +17,13 @@ public class FilePickerState: ObservableObject, Identifiable {
 
     /// URL's selected by UIDocumentPickerViewController
     @Published
-    public var urls: [URL]? {
-        didSet { urlPublisher.send(urls?[0]) }
-    }
+    public var urls: [URL]?
 
     /// UTI's of documents we are interested in
     var documentTypes: [UTType] = []
+
+    /// Copy contents
+    var copyContents: Bool
 
     /// Allow multiple selections in UIDocumentPickerViewController
     @Published
@@ -51,6 +52,7 @@ public class FilePickerState: ObservableObject, Identifiable {
     }
 
     /// Publisher for the selected URL. It is the first URL if multiple URL's are allowed
+    /// send() is called in FilePickerController
     public let urlPublisher = PassthroughSubject<URL?, Never>()
 
     /// Initializer for FilePickerState
@@ -58,9 +60,11 @@ public class FilePickerState: ObservableObject, Identifiable {
     /// - Parameter utis: initial value for documentTypes
     public init(
         _ directory: URL? = nil,
-        utis: [UTType] = [.item, .folder]
+        utis: [UTType] = [.item],
+        asCopy: Bool = false
     ) {
         directoryURL = directory
         documentTypes = utis
+        copyContents = asCopy
     }
 }

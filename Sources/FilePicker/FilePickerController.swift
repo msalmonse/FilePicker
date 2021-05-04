@@ -38,8 +38,10 @@ public struct FilePickerController: UIViewControllerRepresentable {
     }
 
     public func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-        let controller =
-            UIDocumentPickerViewController(forOpeningContentTypes: state.documentTypes, asCopy: true)
+        let controller = UIDocumentPickerViewController(
+            forOpeningContentTypes: state.documentTypes,
+            asCopy: state.copyContents
+        )
         controller.delegate = context.coordinator
         controller.allowsMultipleSelection = state.allowsMultipleSelection
         _ = state.directoryURL?.startAccessingSecurityScopedResource()
