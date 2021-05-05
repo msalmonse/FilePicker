@@ -9,14 +9,17 @@ import Foundation
 import SwiftUI
 
 @available(iOS 14.0, *)
-/// View to show FilePickerController and allow dismisal
-/// - Parameter state: state for FilePickerController
 public struct FilePickerView: View {
     @ObservedObject
     var state: FilePickerState
     @Environment(\.presentationMode)
     var mode: Binding<PresentationMode>
     let toggles: Bool
+
+    /// View to show FilePickerController and allow dismisal
+    /// - Parameters:
+    ///   - state: state for FilePickerController
+    ///   - toggles: show toggles under picker
 
     public init(_ state: FilePickerState, toggles: Bool = false) {
         self.state = state

@@ -12,16 +12,15 @@ import UIKit
 import UniformTypeIdentifiers
 
 @available(iOS 14.0, *)
-/// Wrapper for UIDocumentPickerViewController
-///
-/// - Parameter state: FilePickerState - parameters for UIDocumentPickerViewController
-/// - Parameter doDismiss: Optional closure to run to close the controller
-///
 public struct FilePickerController: UIViewControllerRepresentable {
     @ObservedObject
     var state: FilePickerState
 
     let doDismiss: (() -> Void)?
+
+    /// Wrapper for UIDocumentPickerViewController
+    /// - Parameter state: FilePickerState - parameters for UIDocumentPickerViewController
+    /// - Parameter doDismiss: Optional closure to run to close the controller
 
     public init(_ state: FilePickerState, _ doDismiss: (() -> Void)? = nil) {
         self.state = state

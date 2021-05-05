@@ -7,8 +7,17 @@ disabled_rules:
   - type_name
 
 colon:
+  apply_to_dictionaries: false
   flexible_right_spacing: true
 
-excluded:
-  - ./*/AppDelegate.swift
-  - ./*/SceneDelegate.swift
+cyclomatic_complexity:
+  ignores_case_statements: true
+
+file_length:
+  warning: 500
+
+function_body_length:
+  warning: 60
+
+type_body_length:
+  warning: 250

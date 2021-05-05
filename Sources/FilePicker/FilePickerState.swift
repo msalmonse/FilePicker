@@ -61,7 +61,6 @@ public class FilePickerState: ObservableObject, Identifiable {
         return self
     }
 
-
     /// Show file extensions in UIDocumentPickerViewController
     @Published
     public var shouldShowFileExtensions = false
