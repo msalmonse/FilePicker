@@ -20,10 +20,25 @@ public class FilePickerState: ObservableObject, Identifiable {
     public var urls: [URL]?
 
     /// UTI's of documents we are interested in
+    @Published
     var documentTypes: [UTType] = []
+    /// Setter for documentTypes
+    /// - Parameter utis: new value for document type
+    @discardableResult
+    public func searchTypes(_ utis: [UTType]) -> FilePickerState {
+        documentTypes = utis
+        return self
+    }
 
     /// Copy contents
     var copyContents: Bool
+    /// Setter for copyContents
+    /// - Parameter copy: new value for copyContents
+    @discardableResult
+    public func setCopyContents(_ copy: Bool) -> FilePickerState {
+        copyContents = copy
+        return self
+    }
 
     /// Allow multiple selections in UIDocumentPickerViewController
     @Published
@@ -37,8 +52,15 @@ public class FilePickerState: ObservableObject, Identifiable {
     }
 
     /// Optional start directory
-    @Published
     var directoryURL: URL?
+    /// Setter for directoryURL
+    /// - Parameter allow: new value for allowsMultipleSelection
+    @discardableResult
+    public func startDirectory(_ dir: URL?) -> FilePickerState {
+        directoryURL = dir
+        return self
+    }
+
 
     /// Show file extensions in UIDocumentPickerViewController
     @Published
