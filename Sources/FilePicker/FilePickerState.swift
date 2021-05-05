@@ -42,7 +42,7 @@ public class FilePickerState: ObservableObject, Identifiable {
 
     /// Allow multiple selections in UIDocumentPickerViewController
     @Published
-    var allowsMultipleSelection = false
+    public var allowsMultipleSelection = false
     /// Setter for allowsMultipleSelection
     /// - Parameter allow: new value for allowsMultipleSelection
     @discardableResult
@@ -64,7 +64,7 @@ public class FilePickerState: ObservableObject, Identifiable {
 
     /// Show file extensions in UIDocumentPickerViewController
     @Published
-    var shouldShowFileExtensions = false
+    public var shouldShowFileExtensions = false
     /// Setter for shouldShowFileExtensions
     /// - Parameter show: new value for shouldShowFileExtensions
     @discardableResult
