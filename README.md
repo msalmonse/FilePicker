@@ -23,7 +23,7 @@ struct ContentView: View {
                 self.showPicker = true
             }
             .sheet(isPresented: self.$showPicker) {
-                FilePickerView(state, toggles: true)
+                FilePickerView(state, showToggles: true)
             }
             Text("Path: \(path)")
                 .onReceive(state.urlPublisher, perform: { self.path = $0.path })

@@ -21,7 +21,7 @@ public struct FilePickerView: View {
     ///   - state: state for FilePickerController
     ///   - toggles: show toggles under picker
 
-    public init(_ state: FilePickerState, toggles: Bool = false) {
+    public init(_ state: FilePickerState, showToggles toggles: Bool = false) {
         self.state = state
         self.toggles = toggles
     }
