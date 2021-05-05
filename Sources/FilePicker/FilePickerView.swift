@@ -28,7 +28,6 @@ public struct FilePickerView: View {
     }
 
     public var body: some View {
-        FilePickerController(state, { self.doDismiss() })
         VStack {
             FilePickerController(state, { self.doDismiss() })
             if toggles {
